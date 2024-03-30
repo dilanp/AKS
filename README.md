@@ -18,9 +18,13 @@ First update the `backend/backend.tfvars` file with necessary values. Then, run 
 - terraform plan -var-file="backend.tfvars"
 - terraform apply -var-file="backend.tfvars" -auto-approve
 
-## Terraform commands.
+## Update backend details.
+Once the backend Terraform configuration has been deployed, please update the "azurerm" backend section in the `aks/main.tf` file with the newly created Azure Storage Account backend details.
+
+## Deploy the AKS cluster.
+Once the backend has been configured, run the following commands in the given order.
+- cd aks
 - terraform init
 - terraform validate
-- terraform plan -var-file=aks.tfvars
-- terraform apply -var-file=aks.tfvars -auto-approve
-
+- terraform plan -var-file="aks.tfvars"
+- terraform apply -var-file="aks.tfvars" -auto-approve

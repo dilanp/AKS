@@ -20,6 +20,9 @@ variable "aks_cluster" {
       name       = string
       node_count = string
       vm_size    = string
+      upgrade_settings = object({
+        max_surge = string
+      })
     })
   })
 }

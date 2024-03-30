@@ -7,6 +7,13 @@ terraform {
   }
 
   required_version = ">= 1.7.0"
+
+  backend "azurerm" {
+    resource_group_name  = "rg-aks-backend-dilan"
+    storage_account_name = "saaksbackenddilan"
+    container_name       = "tfstate"
+    key                  = "aks.tfstate"
+  }
 }
 
 

@@ -18,6 +18,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     name       = var.aks_cluster.default_node_pool.name
     node_count = var.aks_cluster.default_node_pool.node_count
     vm_size    = var.aks_cluster.default_node_pool.vm_size
+
+    upgrade_settings {
+      max_surge = var.aks_cluster.default_node_pool.upgrade_settings.max_surge
+    }
   }
 
   identity {
