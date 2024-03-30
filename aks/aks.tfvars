@@ -3,7 +3,7 @@ subscription_id = "fe88f330-5f60-4dcd-be53-bb19bf5c9434"
 location        = "uksouth"
 
 aks_cluster = {
-  name          = "aks-cluster-dilan"
+  name          = "dilan-aks-cluster"
   sku_tier      = "Free"
   identity_type = "SystemAssigned"
   default_node_pool = {
