@@ -12,7 +12,7 @@ Run the following Azure CLI commands.
 
 ## Create the backend storage account.
 First update the `backend/backend.tfvars` file with necessary values. Then, run the following commands in the given order.
-- cd backend
+- cd ./backend/
 - terraform init
 - terraform validate
 - terraform plan -var-file="backend.tfvars"
@@ -23,8 +23,16 @@ Once the backend Terraform configuration has been deployed, please update the "a
 
 ## Deploy the AKS cluster.
 Once the backend has been configured, run the following commands in the given order.
-- cd aks
+- cd ./aks/
 - terraform init
 - terraform validate
 - terraform plan -var-file="aks.tfvars"
 - terraform apply -var-file="aks.tfvars" -auto-approve
+
+## Destroy the AKS cluster and Terraform backend.
+Run the following commands in the given order.
+- cd ./aks/
+- terraform destroy -var-file="aks.tfvars" -auto-approve
+- cd ../backend/
+- terraform destroy -var-file="backend.tfvars" -auto-approve
+- cd ..
